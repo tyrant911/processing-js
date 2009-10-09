@@ -7,6 +7,9 @@
  * More information: http://processing.org/
  */
 
+//THIS IS TYRANT911 ADDInG nothing useful to PROCESSING.js  BOOOyah!!
+//checking to see if pushing back (uploading) worked.
+
 (function(){
 this.Processing = function Processing( aElement, aCode) {
 
