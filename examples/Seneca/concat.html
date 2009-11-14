@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../../processing.js"></script>
+  <script src="../init.js"></script> 
+  <link rel="stylesheet" href="../style.css"/>
+  <!-- <script src="processing.js"></script>
+  <script src="init.js"></script>
+<link rel="stylesheet" href="style.css"/>
+-->
+</head>
+<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+<h2>Concat</h2>
+
+<p>The concat() function concatenates two arrays. For example, concatenating the array { 1, 2, 3 } and the array { 4, 5, 6 } yields { 1, 2, 3, 4, 5, 6 }. Both parameters must be arrays of the same datatype.
+
+When using an array of objects, the data returned from the function must be cast to the object array's data type. For example: SomeClass[] items = (SomeClass[]) concat(array1, array2).</p>
+
+<p><a href="http://www.processing.org/reference/concat_.html"><b>Original Processing.org documentation:</b> Concat</a><br>
+
+<script type="text/javascript">
+		var arr1 = new Array(3);
+		arr1[0] = "Jani";
+		arr1[1] = "Tove";
+		arr1[2] = "Hege";
+
+		var arr2 = new Array(3);
+		arr2[0] = "xxx";
+		arr2[1] = "111";
+		arr2[2] = "zzz";
+		
+		//document.write("last indexof(20)= "+lastIndexOf(20,0));
+</script>
+
+<script type="application/processing">
+
+void setup() 
+{
+  size(500,500);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+	background(10);
+	textFont("Arial",18);
+	fill(255);
+	
+	text("Array1 has the following strings in it:",10,50);
+	for(i=0;i<3;i++)
+	{
+		text(arr1[i],10,70+(i*20));
+	}
+	
+	text("Array2 has the following strings in it:",10,150);
+	for(i=0;i<3;i++)
+	{
+		text(arr2[i],10,170+(i*20));
+	}
+	text("Calling concat(Array1,Array2) returns the following:",10,300);
+	text(concat(arr1,arr2),10,320);
+}
+</script><canvas width="500" height="500"></canvas></p>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+<pre><b>// All Examples Written by <a href="http://matrix.senecac.on.ca/~alondono/concat.html">Alex Londono</a>
+// unless otherwise stated.</b>
+PLACING code in here
+
+</pre>
+</body>
+</html>

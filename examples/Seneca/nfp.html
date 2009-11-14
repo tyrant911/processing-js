@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="../../processing.js"></script>
+  <script src="../init.js"></script> 
+  <link rel="stylesheet" href="../style.css"/>
+  <!-- <script src="processing.js"></script>
+  <script src="init.js"></script>
+<link rel="stylesheet" href="style.css"/>
+-->
+</head>
+<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+<h2>nfp</h2>
+
+<p>The nfp() is a Utility function for formatting numbers into strings. Similar to nf()  but puts a "+" in front of positive numbers and a "-" in front of negative numbers. There are two versions, one for formatting floats and one for formatting ints. The values for the digits, left, and right parameters should always be positive integers.</p>
+
+<p><a href="http://www.processing.org/reference/nfp_.html"><b>Original Processing.org documentation:</b> nfp</a><br>
+<script type="application/processing">
+void setup() 
+{
+  size(500,500);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+	background(10);
+	textFont("Arial",18);
+	fill(255);
+	text("Var a=200, b=-40, c=90;  ",10,110);
+	text("'float' d = -200.94, e = 40.2, f = -9.012; ",10,90);
+	text("Testing nfp(400,8)    outputs:  "+nfp(400,8),10,150);
+	
+	var a=200, b=-40, c=90; 
+	var sa = nfp(a, 10); 
+	text("Testing nfp(sa,10)    outputs:  "+sa,10,170);   // prints "+0000000200" 
+	
+	String sb = nfp(b, 5); 
+	text("Testing nfp(b,5)     outputs:  "+sb,10,190); // prints "-00040" 
+	String sc = nfp(c, 3); 
+	text("Testing nfp(c,3)      outputs:  "+sc,10,210); // prints "+090" 
+ 
+	float d = -200.94, e = 40.2, f = -9.012; 
+	String sd = nfp(d, 10, 4); 
+	text("Testing nfp(d,10,4)    outputs:  "+sd,10,230);  // prints "-0000000200.9400" 
+	String se = nfp(e, 5, 3); 
+	text("Testing nfp(e,5,3)     outputs:  "+se,10,250);  // prints "+00040.200" 
+	String sf = nfp(f, 3, 5); 
+	text("Testing nfp(f,3,5)     outputs:  "+sf,10,270); // prints "-009.01200"
+
+}
+</script><canvas width="500" height="500"></canvas></p>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+<pre><b>// All Examples Written by <a href="http://matrix.senecac.on.ca/~alondono/nfp.html">Alex Londono</a>
+// unless otherwise stated.</b>
+PLACING code in here
+void setup() 
+{
+  size(500,500);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+	background(10);
+	textFont("Arial",18);
+	fill(255);
+	
+	text("Testing nfp(400,8)    outputs:  "+nfp(400,8),10,150);  // prints "+00000400"
+	
+	var a=200, b=-40, c=90; 
+	var sa = nfp(a, 10); 
+	text("Testing nfp(sa,10)    outputs:  "+sa,10,170);   // prints "+0000000200" 
+	
+	String sb = nfp(b, 5); 
+	text("Testing nfp(sb,5)     outputs:  "+sb,10,190); // prints "-00040" 
+	String sc = nfp(c, 3); 
+	text("Testing nfp(c,3)      outputs:  "+sc,10,210); // prints "+090" 
+ 
+	float d = -200.94, e = 40.2, f = -9.012; 
+	String sd = nfp(d, 10, 4); 
+	text("Testing nfp(d,10,4)    outputs:  "+sd,10,230);  // prints "-0000000200.9400" 
+	String se = nfp(e, 5, 3); 
+	text("Testing nfp(e,5,3)     outputs:  "+se,10,250);  // prints "+00040.200" 
+	String sf = nfp(f, 3, 5); 
+	text("Testing nfp(f,3,5)     outputs:  "+sf,10,270); // prints "-009.01200"
+
+}
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,13 @@
+git clone git@github.com:tyrant911/processing-js.git  //copy stuff to my system
+
+ssh git@github.com  // test connection to git hub repository
+
+git config --global github.token 5f415dc7315c4dbb3a88acc12f434913 
+//don't really get this one, just something i typed to make it work.
+
+git config --global github.user tyrant911  // same as the one above
+
+ssh-keygen -C "alondono@learn.senecac.on.ca" -t rsa  // needed when ur on a new system and have to generate a provate key to add to account on github website
+
+
+

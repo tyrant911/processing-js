@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<script src="../../processing.js"></script>
+  <script src="../init.js"></script> 
+  <link rel="stylesheet" href="../style.css"/>
+  <!-- <script src="processing.js"></script>
+  <script src="init.js"></script>
+<link rel="stylesheet" href="style.css"/>
+-->
+</head>
+<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+<h2>Hex</h2>
+
+<p>The hex() function allows numbers or colors to be input and it converts those values to their hexadecimal equivelent.</p>
+
+<p><a href="http://www.processing.org/reference/hex_.html"><b>Original Processing.org documentation:</b> Hex</a><br>
+
+<script type="text/javascript">
+
+</script>
+
+<script type="application/processing">
+
+	float alpha = 100;
+	int lastLength = 0;
+		
+void setup() 
+{
+  size(500,500);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+	background(10);
+	textFont("Arial",18);
+	fill(255);
+	
+	text("testing hex(65)                       Output: "+hex(65),10,330);	
+	text("testing hex(\#\F\F\F\F\F\F)           Output: "+hex(#FFFFFF),10,360);
+	text("testing hex(color(244,255,255))       Output: "+hex(color(244,255,255)),10,380);
+	text("testing hex(color(211,222,233),3)     Output: "+hex(color(244,255,255),3),10,400);
+
+	
+}
+</script><canvas width="500" height="500"></canvas></p>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+<pre><b>// All Examples Written by <a href="http://matrix.senecac.on.ca/~alondono/hex.html">Alex Londono</a>
+// unless otherwise stated.</b>
+PLACING code in here
+
+	float alpha = 100;
+	int lastLength = 0;
+		
+void setup() 
+{
+  size(500,500);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+	background(10);
+	textFont("Arial",18);
+	fill(255);
+	
+	text("testing hex(65)                       Output: "+hex(65),10,330);	
+	text("testing hex(\#\F\F\F\F\F\F)           Output: "+hex(#FFFFFF),10,360);
+	text("testing hex(color(244,255,255))       Output: "+hex(color(244,255,255)),10,380);
+	text("testing hex(color(211,222,233),3)     Output: "+hex(color(244,255,255),3),10,400);
+}
+</pre>
+</body>
+</html>

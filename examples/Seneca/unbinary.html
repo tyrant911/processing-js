@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="../../processing.js"></script>
+  <script src="../init.js"></script> 
+  <link rel="stylesheet" href="../style.css"/>
+  <!-- <script src="processing.js"></script>
+  <script src="init.js"></script>
+<link rel="stylesheet" href="style.css"/>
+-->
+</head>
+<body><h1><a href="http://ejohn.org/blog/processingjs/">Processing.js</a></h1>
+<h2>Unbinary</h2>
+
+<p>The unbinary() function allows a binary value to be passed in so that the output can 
+represent the integer value of that binary number.</p>
+
+<p><a href="http://www.processing.org/reference/unbinary_.html"><b>Original Processing.org documentation:</b> Unbinary</a><br>
+
+<script type="text/javascript">
+		var name=prompt("Please enter an 8 bit(8 digits) binary number","");
+</script>
+
+<script type="application/processing">
+
+void setup() 
+{
+//  size(200,200);
+  size(550,520, P3D);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+  size(550,520, P3D);
+  background(10);
+
+		textFont("Arial",18);
+	//	text(alex() ,10,80);
+	text("Test for unbinary()  values used: 01000001",10,100);
+	text("'function' call = unbinary(\""+'010000001'+"\") :=  "+unbinary("01000001"),10,115);
+	text(unbinary("01000001"), 10, 135);
+	
+	text("Your binary number has an integer value of: "+unbinary(name), 10, 190);
+
+	
+	text("All 4th tests are intended to present an error or anomoly with user input", 10, 500);
+}
+</script><canvas width="550" height="520"></canvas></p>
+<div style="height:0px;width:0px;overflow:hidden;"></div>
+
+<pre><b>// All Examples Written by <a href="http://matrix.senecac.on.ca/~alondono/unbinary.html">Alex Londono</a>
+// unless otherwise stated.</b>
+
+void setup() 
+{
+  size(550,520, P3D);
+  noStroke();
+  frameRate(30);
+}
+
+void draw() 
+{
+  background(10);
+
+		textFont("Arial",18);
+		text(alex() ,10,80);
+	text("Test for unbinary()  values used: 01000001",10,100);
+	text("'function' call = unbinary(\""+'010000001'+"\") :=  "+unbinary("01000001"),10,115);
+	text(unbinary("01000001"), 10, 135);
+	
+	textFont("Times New Roman",28);
+	text(unbinary("01000001"), 10, 160);
+	
+	text("Your binary number has an integer value of: "+unbinary(name), 10, 190);
+
+	text("All 4th tests are intended to present an error or anomoly with user input", 10, 500);
+}
+</pre>
+</body>
+</html>
