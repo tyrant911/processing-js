@@ -497,17 +497,20 @@ function buildProcessing( curElement ){
       return aColor;
   }
   
-  
+  		//Made by Tyrant911
         //take 2 strings and connect them together. 	
         p.concat = function concat(array1, array2) {
             return arr1.concat(arr2);
         }
 
+		//Made by Tyrant911
 		//join an array of things into text. Optionally can be seperated by something
         p.join = function join(array1, seperator) {
             return array1.join(seperator);
         }
-
+		
+		//Made by Tyrant911
+		//still need to test nfp to see if it can handle arrays as nf can
         p.nfp = function nfp(Value, pad, right) {
         var str = String(Value);
 
@@ -561,12 +564,7 @@ function buildProcessing( curElement ){
             }
         }
 
-        //function i use to convert RGB to hex values
-        p.RGB2HTML = function RGB2HTML(red, green, blue) {
-            var char = "0123456789ABCDEF";
-            return String(char.charAt(Math.floor(rgb / 16))) + String(char.charAt(rgb - (Math.floor(rgb / 16) * 16)));
-        }
-
+		//Made by Tyrant911
         p.decimalToHex = function decimalToHex(d, padding) {
             //if there is no padding value added, default padding to 8  else  go into while statement.
             padding = typeof (padding) === "undefined" || padding === null ? padding = 8 : padding;
@@ -578,7 +576,7 @@ function buildProcessing( curElement ){
             return hex;
         }
 
-
+		//Made by Tyrant911
         p.colorRGB = function colorRGB(col) {
             patt = /^rgba?\((\d{1,3}),(\d{1,3}),(\d{1,3}),?(\d{0,3})\)$/i;  //grouped \d{1,3} with ( ) so they can be referenced w\ $1-$4
             var str2 = col.replace(patt, "#$4,$1,$2,$3");
@@ -590,7 +588,8 @@ function buildProcessing( curElement ){
 
             return ("" + Number(al).toString(16) + Number(reD).toString(16) + Number(gree).toString(16) + Number(blu).toString(16)).toUpperCase();
         }
-
+		
+		//Made by Tyrant911
         p.hex = function hex(decimal, len) {
             var hexadecimal = "";
 
@@ -632,7 +631,7 @@ function buildProcessing( curElement ){
             }
             return hexadecimal;
         }
-
+		//Made by Tyrant911
         //pass in a binary string to have it turned into an integer(asci value)
         p.unbinary = function unbinary(binaryString) {
             //var biString = prompt("Enter an 8 digit binary number:","");
@@ -643,10 +642,6 @@ function buildProcessing( curElement ){
                 throw "NaN_Err";
             }
             else {
-                if (arguments.length == 0) {
-                    binaryString = prompt("Enter an 8 digit binary number:", "");
-                }
-
                 if (arguments.length == 1 || binaryString.length == 8) {
                     //try to match the binary pattern (regX) onto the binary string passed to the function.
                     if (binaryPattern.test(binaryString)) {
@@ -671,11 +666,49 @@ function buildProcessing( curElement ){
             }
             return addUp;
         }
-  
-  p.nf = function( num, pad ) {
-    var str = "" + num;
-    while ( pad - str.length )
-      str = "0" + str;
+		
+  	//Modified by Tyrant911 who got it from dhodgin
+     p.nf = function( num, left, right){
+    var str;
+    // array handling
+    if (typeof num == "object"){
+      str = new Array();
+      for(var i=0; i < num.length; i++){
+        str[i] = p.nf(num[i], left, right);
+      }
+    }
+    else if (arguments.length == 3){
+      var negative = false;
+      if (num < 0)
+        negative = true;
+        
+      str = "" + Math.abs(num);  //str = absolute value of num(it's positive version)
+      var digits = ("" + Math.floor(Math.abs(num))).length;  //floor rounds to nearest int
+      var count = left - digits;
+      while (count > 0){
+        str = "0" + str;
+        count--;
+      }
+      // get the number of decimal places, if none will be -1
+      var decimals = ("" + Math.abs(num)).length - digits - 1;
+      if (decimals == -1 && right > 0)
+        str = str + ".";
+      if (decimals != -1)
+        count = right - decimals;
+      else if (decimals == -1 && right > 0){
+        count = right;
+      }
+      else
+        count = 0;
+      while (count > 0){
+        str = str + "0";
+        count--;
+      }
+     // str = (negative ? "-" : " ") + str;
+    }
+    else if (arguments.length == 2){
+      str = p.nf(num, left, 0);
+    }
     return str;
   };
 
