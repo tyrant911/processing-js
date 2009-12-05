@@ -498,6 +498,19 @@ function buildProcessing( curElement ){
   }
   
   		//Made by Tyrant911
+        //take 2 strings and connect them together.  
+  		p.reverse = function reverse(arr){
+			var tmp = new Array(arr.length);
+
+			for (var x=0;x<=arr.length;x+=1){
+				tmp[x] = arr[arr.length-x];
+//				tmp[x] = removeCommas(tmp[x]);  // error console says removeCommas is not defined.
+			}
+				
+		return tmp;
+		}
+  
+  		//Made by Tyrant911
         //take 2 strings and connect them together. 	
         p.concat = function concat(array1, array2) {
             return arr1.concat(arr2);
@@ -563,6 +576,33 @@ function buildProcessing( curElement ){
                 }
             }
         }
+
+		//Made by Tyrant911
+        p.saveStrings = function (storageLocationsName, arrayOfStrings) {
+		    if (localStorage){
+				localStorage.setItem(storageLocationsName, arrayOfStrings.join('\n'));
+            }
+            else
+                throw "No localStorage: this browser does not have localStorage";             
+		};
+		
+		//Made by Tyrant911
+		p.loadStrings = function(loc){
+            if (localStorage){
+				return localStorage.getItem(loc).split('\n');
+			} 
+            else
+                throw"No localStorage: this browser does not have localStorage";             
+		};
+
+		//Made by Tyrant911
+		p.removeStrings = function(loc){
+            if (localStorage){
+				localStorage.removeItem(loc);
+			}
+            else
+                throw"No localStorage: this browser does not have localStorage"; 
+		};		
 
 		//Made by Tyrant911
         p.decimalToHex = function decimalToHex(d, padding) {
